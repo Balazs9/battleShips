@@ -1,7 +1,11 @@
+import random
 from random import randint
 from termcolor import colored
 
 scores = {"computer": 0, "player": 0}
+
+x = random.randint(0, 9)
+y = random.randint(0, 9)
 
 
 class Game:
@@ -33,13 +37,31 @@ class Game:
             return "Hit"
         else:
             return "Missed"
+  
+    def point(self, size):
+        """
+        Return a random integer in a range of 0 and size
+        """
 
-    def guess_validate(self, ):
+        return randint(0, size-1)
+
+    def guess_validate(self, x, y):
         """
         player guess the row and column and
         validator checks if it is an integer
         if not ValueError
         """
+
+        try:
+            for value in values:
+                value = int(value)
+
+                if (value < 0 and value > 9):
+                    raise ValueError(
+                        "Sorry must be between 0 and 9, please try again")
+        except ValueError as e:
+            print(f"Sorry: {e}, is not a number, try again please!")
+            return False
 
     def add_ship(self, x, y, type="computer"):
         if len(self.ships) >= self.number_ships:
@@ -78,7 +100,9 @@ def new_game():
     print(f"Hello {player_name} , enjoy the game!")
     game = Game(size, number_ships, player_name, type)
     game.print()
-    game.add_ship()
+    game.guess(x, y)
+    game.add_ship(x, y)
+    game.point(size)
 
 
 new_game()
