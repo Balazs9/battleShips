@@ -41,8 +41,6 @@ class Game:
         if not ValueError
         """
 
-
-
     def add_ship(self, x, y, type="computer"):
         if len(self.ships) >= self.number_ships:
             print("")
@@ -52,8 +50,7 @@ class Game:
                 self.board[x][y] = "O"
 
 
-def new_game():
-    
+def new_game(): 
     """
     Start the new game, sets ships numbers, board size, restart the scoretbale
     """
@@ -74,14 +71,14 @@ def new_game():
     print(colored("Each player guess their number.", "yellow"))
     print(colored("Then the bets will be visible on the boards.", "yellow"))
     print(colored("Each player has 5 chance to bet", "yellow"))
-    print(colored("***********************************" , "red"))
+    print(colored("***********************************", "red"))
     print(colored("Good luck and have fun!", "red"))
     print(colored("***********************************", "red"))
     player_name = input("Please enter your name: ")
     print(f"Hello {player_name} , enjoy the game!")
     game = Game(size, number_ships, player_name, type)
-    table = game.print()
-    ship = game.add_ship()
+    game.print()
+    game.add_ship()
 
 
 new_game()
