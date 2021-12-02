@@ -4,8 +4,8 @@ from termcolor import colored
 
 scores = {"computer": 0, "player": 0}
 
-x = random.randint(0, 9)
-y = random.randint(0, 9)
+a = random.randint(0, 9)
+b = random.randint(0, 9)
 
 
 class Game:
@@ -100,8 +100,8 @@ def new_game():
     print(f"Hello {player_name} , enjoy the game!")
     game = Game(size, number_ships, player_name, type)
     game.print()
-    game.guess(x, y)
-    game.add_ship(x, y)
+    game.guess(a, b)
+    game.add_ship(a, b)
     game.point(size)
 
 
